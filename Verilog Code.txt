@@ -1,0 +1,40 @@
+module Project(s, sc, ss, sz, b, a, c);
+	input [3:0]a;
+	input [3:0]b;
+	input [3:0]c;
+	
+	output reg[4:0]s;
+	output reg sc, ss, sz;
+	
+	always@(c)
+	begin
+		case(c)
+			4'b1010:s<=~(a&b);
+			4'b1000:
+			begin
+				s<=a+b;
+				if(s[4]==1'b1)
+					sc=1;
+				else
+					sc=0;
+			end
+			4'b1110:s<=a|b;
+			4'b0100:
+			begin
+				s<=a-b;
+				if(s[4]==1'b1)
+					ss=1;
+				else
+					ss=0;
+			end
+			4'b0111:s<=a^b;
+			4'b0001:s<=~a;
+			4'b1001:s<=a*b;
+			4'b1101:s<=~(a|b);
+			
+		endcase
+		if(s==0)
+			sz=5'bx0000;
+	end
+
+endmodule
