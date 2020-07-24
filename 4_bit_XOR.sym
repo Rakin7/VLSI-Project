@@ -1,0 +1,145 @@
+USER SYMBOL by DSCH 2.7a
+DATE 10/16/2019 12:25:00 PM
+SYM  #4_bit_XOR
+BB(0,0,25,100)
+TITLE 10 -2  #4_bit_XOR
+MODEL 6000
+REC(5,5,15,90)
+PIN(0,40,0.00,0.00)A3
+PIN(0,30,0.00,0.00)A2
+PIN(0,20,0.00,0.00)A1
+PIN(0,10,0.00,0.00)A0
+PIN(0,80,0.00,0.00)B3
+PIN(0,70,0.00,0.00)B2
+PIN(0,60,0.00,0.00)B1
+PIN(0,50,0.00,0.00)B0
+PIN(0,90,0.00,0.00)Enable
+PIN(25,20,2.00,1.00)Y1
+PIN(25,30,2.00,1.00)Y2
+PIN(25,40,2.00,1.00)Y3
+PIN(25,10,2.00,1.00)Y0
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(0,80,5,80)
+LIG(0,70,5,70)
+LIG(0,60,5,60)
+LIG(0,50,5,50)
+LIG(0,90,5,90)
+LIG(20,20,25,20)
+LIG(20,30,25,30)
+LIG(20,40,25,40)
+LIG(20,10,25,10)
+LIG(5,5,5,95)
+LIG(5,5,20,5)
+LIG(20,5,20,95)
+LIG(20,95,5,95)
+VLG module 4_bit_XOR( A3,A2,A1,A0,B3,B2,B1,B0,
+VLG  Enable,Y1,Y2,Y3,Y0);
+VLG  input A3,A2,A1,A0,B3,B2,B1,B0;
+VLG  input Enable;
+VLG  output Y1,Y2,Y3,Y0;
+VLG  wire w18,w19,w20,w21,w22,w23,w24,w25;
+VLG  wire w26,w27,w28,w29,w30,w31,w32,w33;
+VLG  wire w34,w35,w36,w37,w38,w39,w40,w41;
+VLG  wire w42,w43,w44,w45,w46,w47,w48,w49;
+VLG  wire w50,w51,w52,w53,w54,w55,w56,w57;
+VLG  pmos #(33) pmos_XO1(w19,vdd,w18); //  
+VLG  pmos #(33) pmos_XO2(w19,vdd,B3); //  
+VLG  pmos #(61) pmos_XO3(w20,w19,A3); //  
+VLG  pmos #(61) pmos_XO4(w20,w19,w21); //  
+VLG  nmos #(61) nmos_XO5(w20,w22,B3); //  
+VLG  nmos #(12) nmos_XO6(w22,vss,w21); //  
+VLG  nmos #(61) nmos_XO7(w20,w23,w18); //  
+VLG  nmos #(12) nmos_XO8(w23,vss,A3); //  
+VLG  not #(45) inverter_XO9(w18,B3);
+VLG  not #(45) inverter_XO10(w21,A3);
+VLG  not #(42) inverter_XO11(w11,w20);
+VLG  pmos #(43) pmos_in1_XO12(w18,vdd,B3); //  
+VLG  nmos #(43) nmos_in2_XO13(w18,vss,B3); //  
+VLG  pmos #(43) pmos_in3_XO14(w21,vdd,A3); //  
+VLG  nmos #(43) nmos_in4_XO15(w21,vss,A3); //  
+VLG  pmos #(40) pmos_in5_XO16(w11,vdd,w20); //  
+VLG  nmos #(40) nmos_in6_XO17(w11,vss,w20); //  
+VLG  pmos #(33) pmos_en18(w25,w24,w14); //  
+VLG  nmos #(33) nmos_en19(w25,w26,w14); //  
+VLG  nmos #(23) nmos_en20(w26,vss,Enable); //  
+VLG  pmos #(23) pmos_en21(w24,vdd,w27); //  
+VLG  not #(12) inv_en22(w27,Enable);
+VLG  nmos #(23) nmos_en23(Y0,w26,w25); //  
+VLG  pmos #(23) pmos_en24(Y0,w24,w25); //  
+VLG  pmos #(33) pmos_en25(w29,w28,w16); //  
+VLG  nmos #(33) nmos_en26(w29,w30,w16); //  
+VLG  nmos #(23) nmos_en27(w30,vss,Enable); //  
+VLG  pmos #(23) pmos_en28(w28,vdd,w31); //  
+VLG  not #(12) inv_en29(w31,Enable);
+VLG  nmos #(23) nmos_en30(Y1,w30,w29); //  
+VLG  pmos #(23) pmos_en31(Y1,w28,w29); //  
+VLG  pmos #(33) pmos_en32(w33,w32,w17); //  
+VLG  nmos #(33) nmos_en33(w33,w34,w17); //  
+VLG  nmos #(23) nmos_en34(w34,vss,Enable); //  
+VLG  pmos #(23) pmos_en35(w32,vdd,w35); //  
+VLG  not #(12) inv_en36(w35,Enable);
+VLG  nmos #(23) nmos_en37(Y2,w34,w33); //  
+VLG  pmos #(23) pmos_en38(Y2,w32,w33); //  
+VLG  pmos #(33) pmos_en39(w37,w36,w11); //  
+VLG  nmos #(33) nmos_en40(w37,w38,w11); //  
+VLG  nmos #(23) nmos_en41(w38,vss,Enable); //  
+VLG  pmos #(23) pmos_en42(w36,vdd,w39); //  
+VLG  not #(12) inv_en43(w39,Enable);
+VLG  nmos #(23) nmos_en44(Y3,w38,w37); //  
+VLG  pmos #(23) pmos_en45(Y3,w36,w37); //  
+VLG  pmos #(33) pmos_XO46(w41,vdd,w40); //  
+VLG  pmos #(33) pmos_XO47(w41,vdd,B2); //  
+VLG  pmos #(61) pmos_XO48(w42,w41,A2); //  
+VLG  pmos #(61) pmos_XO49(w42,w41,w43); //  
+VLG  nmos #(61) nmos_XO50(w42,w44,B2); //  
+VLG  nmos #(12) nmos_XO51(w44,vss,w43); //  
+VLG  nmos #(61) nmos_XO52(w42,w45,w40); //  
+VLG  nmos #(12) nmos_XO53(w45,vss,A2); //  
+VLG  not #(45) inverter_XO54(w40,B2);
+VLG  not #(45) inverter_XO55(w43,A2);
+VLG  not #(42) inverter_XO56(w17,w42);
+VLG  pmos #(43) pmos_in1_XO57(w40,vdd,B2); //  
+VLG  nmos #(43) nmos_in2_XO58(w40,vss,B2); //  
+VLG  pmos #(43) pmos_in3_XO59(w43,vdd,A2); //  
+VLG  nmos #(43) nmos_in4_XO60(w43,vss,A2); //  
+VLG  pmos #(40) pmos_in5_XO61(w17,vdd,w42); //  
+VLG  nmos #(40) nmos_in6_XO62(w17,vss,w42); //  
+VLG  pmos #(33) pmos_XO63(w47,vdd,w46); //  
+VLG  pmos #(33) pmos_XO64(w47,vdd,B1); //  
+VLG  pmos #(61) pmos_XO65(w48,w47,A1); //  
+VLG  pmos #(61) pmos_XO66(w48,w47,w49); //  
+VLG  nmos #(61) nmos_XO67(w48,w50,B1); //  
+VLG  nmos #(12) nmos_XO68(w50,vss,w49); //  
+VLG  nmos #(61) nmos_XO69(w48,w51,w46); //  
+VLG  nmos #(12) nmos_XO70(w51,vss,A1); //  
+VLG  not #(45) inverter_XO71(w46,B1);
+VLG  not #(45) inverter_XO72(w49,A1);
+VLG  not #(42) inverter_XO73(w16,w48);
+VLG  pmos #(43) pmos_in1_XO74(w46,vdd,B1); //  
+VLG  nmos #(43) nmos_in2_XO75(w46,vss,B1); //  
+VLG  pmos #(43) pmos_in3_XO76(w49,vdd,A1); //  
+VLG  nmos #(43) nmos_in4_XO77(w49,vss,A1); //  
+VLG  pmos #(40) pmos_in5_XO78(w16,vdd,w48); //  
+VLG  nmos #(40) nmos_in6_XO79(w16,vss,w48); //  
+VLG  pmos #(33) pmos_XO80(w53,vdd,w52); //  
+VLG  pmos #(33) pmos_XO81(w53,vdd,B0); //  
+VLG  pmos #(61) pmos_XO82(w54,w53,A0); //  
+VLG  pmos #(61) pmos_XO83(w54,w53,w55); //  
+VLG  nmos #(61) nmos_XO84(w54,w56,B0); //  
+VLG  nmos #(12) nmos_XO85(w56,vss,w55); //  
+VLG  nmos #(61) nmos_XO86(w54,w57,w52); //  
+VLG  nmos #(12) nmos_XO87(w57,vss,A0); //  
+VLG  not #(45) inverter_XO88(w52,B0);
+VLG  not #(45) inverter_XO89(w55,A0);
+VLG  not #(42) inverter_XO90(w14,w54);
+VLG  pmos #(43) pmos_in1_XO91(w52,vdd,B0); //  
+VLG  nmos #(43) nmos_in2_XO92(w52,vss,B0); //  
+VLG  pmos #(43) pmos_in3_XO93(w55,vdd,A0); //  
+VLG  nmos #(43) nmos_in4_XO94(w55,vss,A0); //  
+VLG  pmos #(40) pmos_in5_XO95(w14,vdd,w54); //  
+VLG  nmos #(40) nmos_in6_XO96(w14,vss,w54); //  
+VLG endmodule
+FSYM
